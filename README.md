@@ -62,8 +62,48 @@ https://cloud.google.com
   **Output Blocks:**  
   ```
   output "<output_name>" {
-    value = <resouce_name_and_attribute_to_get_values_from_resource>
+    value = <resource_name_and_attribute_to_get_values_from_resource>
 }
   ```
    
+ 1.Creating First Instance on google Cloud using Terraform :  
+ ```
+  terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+}  
+
+ provider "google" {
+    project = "my-project-id"
+    region  = "us-central1"
+    zone = "us-east1b"
+    credentails = "<path_to_key.json>"
+  }  
+  
+ resource "google_compute_instance" "default" {
+  name         = "tf-vm-instance"
+  machine_type = "e2-medium"
+  zone         = "us-central1-a"
+
+  tags = ["http-server","https-server"]
+
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-11"
+    }
+  }
+  network_interface {
+    network = "default"
+    access_config {
+      // Ephemeral public IP
+    }
+  }
+  metadata_startup_script = <file_path_and_name>
+}
+
+ ```
  

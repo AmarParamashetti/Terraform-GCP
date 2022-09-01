@@ -122,18 +122,29 @@ Example 2:  Use of variable and creating instance using variables[create a file 
  
  ```
    variable "gcp_project_id" {
+    type = string
     default = "<your_project_id>"
   }
    variable "gcp_region" {
+    type = string
     default = "us-central1"
   }
    variable "gcp_zone" {
+    type = string
     default = "us-east1b"
   }
    variable "gcp_machinename" {
+    type = string
     default = "tf-vm-instance"
   }
- ```
+    variable "gcp_machinetype" {
+    type = string
+    description ="this variable will be prompted when we run plan or apply command, since we did not provide the default value"
+  }  
+  
+ ```  
+ **Note we can override the default value while running using CLI i.e -var "<variable_name>=<new_value>"  e.g -var "gcp_machinename=tf-instance"**
+ 
  Using the variable in our tf [terraform] script  
  ```
   terraform {
@@ -154,7 +165,7 @@ Example 2:  Use of variable and creating instance using variables[create a file 
   
  resource "google_compute_instance" "vm-instance" {
   name         = var.gcp_machinename
-  machine_type = "e2-medium"
+  machine_type = var.gcp_machinetype
   zone         = "us-central1-a"
 
   tags = ["http-server","https-server"]

@@ -1,6 +1,7 @@
 # Terraform-GCP  
-### Download link for terraform :  
-https://www.terraform.io/downloads  
+### Download link Terraform and GCP :  
+https://www.terraform.io/downloads   
+https://cloud.google.com
   
 ### Terraform Commands :
 **terraform init** : it will initilize and add the terraform dependency files to current folder  

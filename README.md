@@ -152,7 +152,7 @@ https://cloud.google.com
   }  
   
  resource "google_compute_instance" "default" {
-  <strong>name         = var.gcp_machinename</strong>
+  name         = var.gcp_machinename
   machine_type = "e2-medium"
   zone         = "us-central1-a"
 

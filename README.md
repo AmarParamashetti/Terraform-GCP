@@ -145,14 +145,14 @@ https://cloud.google.com
 }  
 
  provider "google" {
-    **project = var.gcp_project_id**
-    **region  = var.gcp_region**
-    **zone = var.gcp_zone**
+    <strong>project = var.gcp_project_id</strong>
+    <strong>region  = var.gcp_region</strong>
+    <strong>zone = var.gcp_zone</strong>
     credentails = "<path_to_key.json>"
   }  
   
  resource "google_compute_instance" "default" {
-  **name         = var.gcp_machinename**
+  <strong>name         = var.gcp_machinename</strong>
   machine_type = "e2-medium"
   zone         = "us-central1-a"
 

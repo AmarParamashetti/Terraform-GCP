@@ -65,8 +65,18 @@ https://cloud.google.com
     value = <resource_name_and_attribute_to_get_values_from_resource>
 }
   ```
+  **Datasource Block:** 
+  ```
+  will update once we use this
+  ```   
+  
+  **Modules Block:**  
+    
+  ```
+  will update once we use this
+  ```
    
- Putting it all together and creating our first Instance on google Cloud using Terraform :  
+ Putting it all together and creating our first instance on google Cloud using Terraform :  
  ```
   terraform {
   required_providers {

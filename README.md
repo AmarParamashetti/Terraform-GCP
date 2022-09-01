@@ -19,8 +19,9 @@ https://cloud.google.com
  3. Resource Block :  
  4. Input variable Block : 
  5. Output variable Block :
- 6. Data source Block : 
- 7. Modules Block  
+ 6. Local Block :  
+ 7. Data source Block : 
+ 8. Modules Block  
  
  **Terraform Block :** 
  ```
@@ -221,5 +222,9 @@ Example 2:  Use of variable and creating instance using variables[create a file 
   description = "Get the instnace ID of created instance"
   value = google_compute_instance.vm-instance.hostname  
 }
+ ```  
+ Example of using local block :  
+ ```
+ 
  ```
  

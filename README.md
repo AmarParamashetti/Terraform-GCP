@@ -117,7 +117,7 @@ https://cloud.google.com
 }
 
  ```   
- Use of variable and creating instnace using variables[create a file <filename.tf>]
+ Use of variable and creating instance using variables[create a file <filename.tf>]
  
  ```
    variable "gcp_project_id" {
@@ -145,14 +145,14 @@ https://cloud.google.com
 }  
 
  provider "google" {
-    project = var.gcp_project_id
-    region  = var.gcp_region
-    zone = var.gcp_zone
+    **project = var.gcp_project_id**
+    **region  = var.gcp_region**
+    **zone = var.gcp_zone**
     credentails = "<path_to_key.json>"
   }  
   
  resource "google_compute_instance" "default" {
-  name         = var.gcp_machinename
+  **name         = var.gcp_machinename**
   machine_type = "e2-medium"
   zone         = "us-central1-a"
 

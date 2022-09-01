@@ -77,6 +77,7 @@ https://cloud.google.com
   ```
    
  Putting it all together and creating our first instance on google Cloud using Terraform :  
+ 
  ```
   terraform {
   required_providers {
@@ -115,5 +116,60 @@ https://cloud.google.com
   metadata_startup_script = <file_path_and_name>
 }
 
+ ```   
+ Use of variable and creating instnace using variables[create a file <filename.tf>]
+ 
+ ```
+   variable "gcp_project_id" {
+    default = "<your_project_id>"
+  }
+   variable "gcp_region" {
+    default = "us-central1"
+  }
+   variable "gcp_zone" {
+    default = "us-east1b"
+  }
+   variable "gcp_machinename" {
+    default = "tf-vm-instance"
+  }
+ ```
+ Using the variable in our tf [terraform] script  
+ ```
+  terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+}  
+
+ provider "google" {
+    project = var.gcp_project_id
+    region  = var.gcp_region
+    zone = var.gcp_zone
+    credentails = "<path_to_key.json>"
+  }  
+  
+ resource "google_compute_instance" "default" {
+  name         = var.gcp_machinename
+  machine_type = "e2-medium"
+  zone         = "us-central1-a"
+
+  tags = ["http-server","https-server"]
+
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-11"
+    }
+  }
+  network_interface {
+    network = "default"
+    access_config {
+      // Ephemeral public IP
+    }
+  }
+  metadata_startup_script = <file_path_and_name>
+}
  ```
  

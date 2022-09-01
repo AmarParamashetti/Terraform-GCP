@@ -10,3 +10,13 @@ https://www.terraform.io/downloads
 **terraform destroy** : it will destroy the resources on the cloud, it will ask for confirmation for "Yes" once we run the command[interactive mode]  
 **terraform apply -auto-approve** : it is an alternative for point 6, it will create resource without asking for approval  
 **terraform destory -auto-approve** : it is an alternative for point 7, it will create resource without asking for approval  
+  
+ ### Terraform Top level blocks :  
+ 1. Terraform settings Block :
+ 2. Provider Block :  
+ 3. Resource Block :  
+ 4. Input variable Block : 
+ 5. Output variable Block :
+ 6. Data source Block : 
+ 7. Modules Block
+ 

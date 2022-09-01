@@ -42,6 +42,28 @@ https://cloud.google.com
     zone = "us-east1b"
     credentails = "<path_to_key.json>"
   }
+  ```   
+  
+  **Resource Block :**  
+  ```
+  resource "<resource_name>" "<local_name>" {
+    <arguments> : <value>
+}
+  ```   
+  
+  **Input Block :**  
+  
+  ```
+  variable "<variable_name>" {
+    default = "<variable_value>"
+  }
+  ```  
+  
+  **Output Blocks:**  
+  ```
+  output "<output_name>" {
+    value = <resouce_name_and_attribute_to_get_values_from_resource>
+}
   ```
    
  

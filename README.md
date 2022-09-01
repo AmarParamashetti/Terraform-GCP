@@ -1,5 +1,5 @@
 # Terraform-GCP  
-### Download link Terraform and GCP :  
+### Download link for Terraform and GCP account creation:  
 https://www.terraform.io/downloads   
 https://cloud.google.com
   
@@ -211,11 +211,15 @@ Example 2:  Use of variable and creating instance using variables[create a file 
   metadata_startup_script = <file_path_and_name>
 }
  ```  
- Output : we can use multiple attrbute and get the details of resources
+ Output : we can use multiple attribute and get the details of resources
  ```
  output "InstanceID" {
   description = "Get the instnace ID of created instance"
-  value = google_compute_instance.vm-instance.id  
+  value = google_compute_instance.vm-instance.instance_id  
+}  
+ output "HostName" {
+  description = "Get the instnace ID of created instance"
+  value = google_compute_instance.vm-instance.hostname  
 }
  ```
  

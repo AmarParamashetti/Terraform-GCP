@@ -66,7 +66,7 @@ https://cloud.google.com
 }
   ```
    
- 1.Creating First Instance on google Cloud using Terraform :  
+ Putting it all together and creating our first Instance on google Cloud using Terraform :  
  ```
   terraform {
   required_providers {

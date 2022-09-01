@@ -145,9 +145,9 @@ https://cloud.google.com
 }  
 
  provider "google" {
-    <strong>project = var.gcp_project_id</strong>
-    <strong>region  = var.gcp_region</strong>
-    <strong>zone = var.gcp_zone</strong>
+    project = var.gcp_project_id
+    region  = var.gcp_region
+   zone = var.gcp_zone
     credentails = "<path_to_key.json>"
   }  
   

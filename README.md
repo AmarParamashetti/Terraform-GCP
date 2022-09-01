@@ -28,8 +28,8 @@ https://cloud.google.com
  terraform {
   required_providers {
     google = {
-      source  = "hashicorp/aws"
-      version = "~> 3.0"
+      source  = "hashicorp/google" 
+      version = "~> 3.0" // provider version
     }
   }
 }
@@ -41,7 +41,7 @@ https://cloud.google.com
     project = "my-project-id"
     region  = "us-central1"
     zone = "us-east1b"
-    credentails = "<path_to_key.json>"
+    credentails = "<path_to_key.json>" // key provided in json format from service account
   }
   ```   
   
@@ -83,7 +83,7 @@ https://cloud.google.com
   terraform {
   required_providers {
     google = {
-      source  = "hashicorp/aws"
+      source  = "hashicorp/google"
       version = "~> 3.0"
     }
   }
@@ -101,11 +101,11 @@ https://cloud.google.com
   machine_type = "e2-medium"
   zone         = "us-central1-a"
 
-  tags = ["http-server","https-server"]
+  tags = ["http-server","https-server"] // enable http port
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-11"
+      image = "debian-cloud/debian-11" //image
     }
   }
   network_interface {
@@ -139,8 +139,8 @@ Example 2:  Use of variable and creating instance using variables[create a file 
   terraform {
   required_providers {
     google = {
-      source  = "hashicorp/aws"
-      version = "~> 3.0"
+      source  = "hashicorp/google"
+      version = "~> 3.0" 
     }
   }
 }  
@@ -178,7 +178,7 @@ Example 2:  Use of variable and creating instance using variables[create a file 
   terraform {
   required_providers {
     google = {
-      source  = "hashicorp/aws"
+      source  = "hashicorp/google"
       version = "~> 3.0"
     }
   }

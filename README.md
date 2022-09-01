@@ -20,5 +20,28 @@ https://cloud.google.com
  4. Input variable Block : 
  5. Output variable Block :
  6. Data source Block : 
- 7. Modules Block
+ 7. Modules Block  
+ 
+ **Terraform Block :** 
+ ```
+ terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+}
+ ```  
+   
+   **Provider Block :**  
+ ```
+ provider "google" {
+    project = "my-project-id"
+    region  = "us-central1"
+    zone = "us-east1b"
+    credentails = "<path_to_key.json>"
+  }
+  ```
+   
  

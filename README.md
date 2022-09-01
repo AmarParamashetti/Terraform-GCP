@@ -143,7 +143,8 @@ Example 2:  Use of variable and creating instance using variables[create a file 
   }  
   
  ```  
- **Note we can override the default value while running using CLI i.e -var "<variable_name>=<new_value>"  e.g -var "gcp_machinename=tf-instance"**
+ **Note: we can override the default value while running using CLI i.e -var "<variable_name>=<new_value>"  e.g -var "gcp_machinename=tf-instance"**  
+ **Note : we can create a plan file for us and variable will be stored in the file e.g. terraform plan -var "gcp_machinename=tf_instance" -var "gcp_zone=us-east1b" -out <file_name>.plan and we can use the same in apply command e.g terraform apply <file_name>.plan** 
  
  Using the variable in our tf [terraform] script  
  ```

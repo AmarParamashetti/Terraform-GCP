@@ -76,7 +76,7 @@ https://cloud.google.com
   will update once we use this
   ```
    
- Putting it all together and creating our first instance on google Cloud using Terraform :  
+ Example 1: Putting it all together and creating our first instance on google Cloud using Terraform :  
  
  ```
   terraform {
@@ -95,7 +95,7 @@ https://cloud.google.com
     credentails = "<path_to_key.json>"
   }  
   
- resource "google_compute_instance" "default" {
+ resource "google_compute_instance" "vm-instance" {
   name         = "tf-vm-instance"
   machine_type = "e2-medium"
   zone         = "us-central1-a"
@@ -117,7 +117,7 @@ https://cloud.google.com
 }
 
  ```   
- Use of variable and creating instance using variables[create a file <filename.tf>]
+Example 2:  Use of variable and creating instance using variables[create a file <filename.tf>]
  
  ```
    variable "gcp_project_id" {
@@ -151,7 +151,7 @@ https://cloud.google.com
     credentails = "<path_to_key.json>"
   }  
   
- resource "google_compute_instance" "default" {
+ resource "google_compute_instance" "vm-instance" {
   name         = var.gcp_machinename
   machine_type = "e2-medium"
   zone         = "us-central1-a"
@@ -170,6 +170,52 @@ https://cloud.google.com
     }
   }
   metadata_startup_script = <file_path_and_name>
+}
+ ```   
+ Example 3:  Use of output after creating the instance
+  ```
+  terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+}  
+
+ provider "google" {
+    project = "my-project-id"
+    region  = "us-central1"
+    zone = "us-east1b"
+    credentails = "<path_to_key.json>"
+  }  
+  
+ resource "google_compute_instance" "vm-instance" {
+  name         = "tf-vm-instance"
+  machine_type = "e2-medium"
+  zone         = "us-central1-a"
+
+  tags = ["http-server","https-server"]
+
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-11"
+    }
+  }
+  network_interface {
+    network = "default"
+    access_config {
+      // Ephemeral public IP
+    }
+  }
+  metadata_startup_script = <file_path_and_name>
+}
+ ```  
+ Output : we can use multiple attrbute and get the details of resources
+ ```
+ output "InstanceID" {
+  description = "Get the instnace ID of created instance"
+  value = google_compute_instance.vm-instance.id  
 }
  ```
  

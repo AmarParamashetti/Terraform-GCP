@@ -1,4 +1,7 @@
-# Terraform-GCP
+# Terraform-GCP  
+### Download link for terraform :  
+https://www.terraform.io/downloads  
+  
 ### Terraform Commands :
 **terraform init** : it will initilize and add the terraform dependency files to current folder  
 **terraform validate** : it will valid and check the syntax if it is correct  

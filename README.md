@@ -66,9 +66,11 @@ https://cloud.google.com
     value = <resource_name_and_attribute_to_get_values_from_resource>
 }
   ```
-  **Datasource Block:** 
-  ```
-  will update once we use this
+  **Datasource Block:**  
+  ```  
+  data "google_compute_zones" "getallzones"{  
+    this is called data resource or data block
+  }  
   ```   
   
   **Modules Block:**  

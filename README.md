@@ -238,7 +238,21 @@ Example 2:  Use of variable and creating instance using variables[create a file 
 }
  ```  
  Example of using local block :  
- ```
- 
+ ```  
+ variable "regionname"{  
+ type=string  
+ default="us-central1"  
+ zone = "us-east1b"  
+ }   
+ variable "zonename"{  
+ type=string  
+ default="us-east1b"  
+ }  
+ locals{
+ bucketname :"${var.regionname}-${var.zonename}"
+ }  
+ resource "bucket_creation" "bucket_name"  {
+ name = bucketname
+ }  
  ```
  
